@@ -1,0 +1,30 @@
+version: "3.8"
+
+services:
+  server:
+    build: ./server
+    command: "./bin/rails server --port 3000 -b 0.0.0.0"
+    container_name: rails-server
+    working_dir: /rails-server
+    tty: true
+    ports:
+      - 3000:3000
+    volumes:
+      - ./server:/rails-server:delegated
+    depends_on:
+      - db
+  db:
+    build: ./db
+    command: "mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci"
+    container_name: rails-db
+    tty: true
+    environment:
+      MYSQL_DATABASE: rails_db
+      MYSQL_USER: user
+      MYSQL_PASSWORD: "password!"
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+      TZ: Asia/Tokyo
+    ports:
+      - 3306:3306
+    volumes:
+      - ./db/data:/var/lib/mysql:delegated
