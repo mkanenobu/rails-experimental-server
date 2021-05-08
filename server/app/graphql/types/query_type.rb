@@ -16,7 +16,7 @@ module Types
       argument :id, ID, required: true
     end
     def user(id:)
-      User.find(id).visible_attr
+      User.visible_attr.find(id)
     end
   end
 end
