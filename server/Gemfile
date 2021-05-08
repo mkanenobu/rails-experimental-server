@@ -20,6 +20,8 @@ gem 'graphql'
 
 gem 'ridgepole'
 
+gem 'sprockets', '~> 3.7.2'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
