@@ -18,5 +18,17 @@ module Types
     def user(id:)
       User.visible_attr.find(id)
     end
+
+    field :posts, [Types::PostType], null: false
+    def posts
+      Post.available.all
+    end
+
+    field :post, Types::PostType, null: false do
+      argument :id, ID, required: true
+    end
+    def post(id:)
+      Post.available.find(id)
+    end
   end
 end
