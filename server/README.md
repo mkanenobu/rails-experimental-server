@@ -40,3 +40,23 @@ Query example
   }
 }
 ```
+
+Mutation example
+
+```
+mutation createUser($email: String!, $password: String!) {
+  createUser(input: {email: $email, password: $password, clientMutationId: $email}) {
+    user {
+      id
+    }
+    result
+    clientMutationId
+  }
+}
+
+# Query variables
+{
+  "email": "user２@example.com",
+  "password": "password"
+}
+```
