@@ -1,6 +1,6 @@
 class UsersController < AppNeedsAuthController
   def index
-    render json: { users: User.all.map(&:to_visible) }
+    render json: { users: User.visible_attr.all }
   end
 
   def create

@@ -7,12 +7,8 @@ class User < ApplicationRecord
 
   has_secure_password
 
-  def to_visible
-    {
-      id: id,
-      email: email,
-      token: client_token
-    }
+  def self.visible_attr
+    select(:id, :email, :client_token)
   end
 
   def self.create_client_token

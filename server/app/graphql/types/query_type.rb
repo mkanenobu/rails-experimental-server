@@ -9,7 +9,7 @@ module Types
 
     field :users, [Types::UserType], null: false
     def users
-      User.all.map(&:to_visible)
+      User.visible_attr.all
     end
 
     field :user, Types::UserType, null: false do
