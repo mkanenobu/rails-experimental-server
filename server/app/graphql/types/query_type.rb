@@ -13,10 +13,10 @@ module Types
     end
 
     field :user, Types::UserType, null: false do
-      argument :id, ID, required: false
+      argument :id, ID, required: true
     end
     def user(id:)
-      User.find(id)
+      User.find(id).visible_attr
     end
   end
 end

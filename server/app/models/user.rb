@@ -5,6 +5,8 @@ class User < ApplicationRecord
   validates :password_digest, presence: true, on: :create
   validates :client_token, uniqueness: true
 
+  has_many :post
+
   has_secure_password
 
   def self.visible_attr

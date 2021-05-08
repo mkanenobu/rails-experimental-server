@@ -5,3 +5,10 @@ create_table "users", collation: "utf8mb4_0900_ai_ci", charset: "utf8mb4",  forc
   t.string "password_digest", null: false
   t.string "client_token", unique: true
 end
+
+create_table "posts", collation: "utf8mb4_0900_ai_ci", charset: "utf8mb4",  force: :cascade do |t|
+  t.integer "user_id", null: false
+  t.string "title", null: false
+  t.text "text", null: false
+  t.boolean "published", null: false, default: false
+end
