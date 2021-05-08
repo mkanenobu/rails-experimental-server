@@ -14,7 +14,7 @@ http://localhost:3000/graphiql
 
 Query example
 
-```json
+```
 {
   users {
     id
@@ -29,7 +29,7 @@ Query example
 }
 ```
 
-```json
+```
 {
   user(id: 1) {
     email
